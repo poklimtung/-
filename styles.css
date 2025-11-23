@@ -1,0 +1,160 @@
+/*
+ * 1. องค์ประกอบหลัก (Core Components)
+ * โทนสี: พื้นหลังเข้ม (#1a1a1a), ข้อความสว่าง (white), เน้นสี (สีเหลืองทอง #ffc107)
+ */
+:root {
+    --bg-color: #1a1a1a;
+    --text-light: #ffffff;
+    --accent-color: #ffc107; /* สีสว่างสำหรับองค์ประกอบที่โต้ตอบได้ */
+    --button-bg: #2c2c2c; /* สีเทาเข้มสำหรับปุ่ม */
+    --font-family: 'Kanit', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* เพื่อให้ Footer อยู่ด้านล่าง */
+}
+
+/*
+ * 2. ส่วนหัว (Header)
+ */
+.app-header {
+    background-color: #000000; /* ดำสนิท */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* รองรับการแสดงผลบนจอเล็ก */
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.logo-name h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+}
+
+.logo-name p {
+    margin: 0;
+    font-size: 0.9em;
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px; /* สำหรับจอเล็ก */
+}
+
+.contact-item {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.contact-item:hover {
+    color: var(--accent-color);
+}
+
+.contact-item i {
+    margin-right: 5px;
+}
+
+/* ปรับไอคอนโซเชียลมีเดียให้เด่นขึ้น */
+.contact-item.social i {
+    font-size: 1.5em;
+    margin-right: 0;
+}
+
+/*
+ * 3. รายการบริการ/ลิงก์ (Interactive Menu/Links)
+ */
+.service-menu {
+    flex-grow: 1; /* ให้ใช้พื้นที่ที่เหลือทั้งหมด */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+    max-width: 600px; /* กำหนดความกว้างสูงสุดสำหรับเนื้อหาหลัก */
+    margin: 20px auto; /* จัดกึ่งกลาง */
+    width: 100%;
+}
+
+.menu-button {
+    /* การออกแบบปุ่ม */
+    background-color: var(--button-bg);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid var(--accent-color); /* เน้นด้วยสีสว่าง */
+}
+
+.menu-button:hover {
+    background-color: #444444; /* สีเข้มขึ้นเมื่อชี้ */
+    transform: translateY(-2px); /* ยกขึ้นเล็กน้อย */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.menu-button i {
+    /* ไอคอน */
+    font-size: 1.8em;
+    margin-right: 20px;
+    color: var(--accent-color); /* สีสว่างสำหรับไอคอน */
+}
+
+.button-text {
+    /* ข้อความ */
+    flex-grow: 1;
+}
+
+/*
+ * 4. การปรับให้เข้ากับจอเล็ก (Responsive Design)
+ */
+@media (max-width: 600px) {
+    .app-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-info {
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .contact-item.phone {
+        font-size: 1em; /* ลดขนาดในมือถือ */
+    }
+    .menu-button {
+        font-size: 1.1em;
+        padding: 12px 15px;
+    }
+    .menu-button i {
+        font-size: 1.5em;
+        margin-right: 15px;
+    }
+}
+
+/* ส่วนท้าย (Footer) */
+.app-footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8em;
+    color: #888888;
+    margin-top: auto; /* ดันไปด้านล่างสุด */
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P.S - งานติดตั้งเครื่องทำน้ำอุ่น</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+        .service-description p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .gallery-item {
+            flex: 1 1 calc(33.33% - 15px);
+            background-color: var(--button-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .gallery-item img:hover {
+            opacity: 1;
+        }
+        .cta-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            border-radius: 8px;
+            margin-top: 30px;
+            transition: background-color 0.2s;
+        }
+        .cta-button:hover {
+            background-color: #ffd700;
+        }
+        @media (max-width: 600px) {
+            .gallery-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo-name">
+            <a href="index.html" class="contact-item" style="font-size: 1.5em; margin-right: 15px;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>งานติดตั้งเครื่องทำน้ำอุ่น</h1>
+        </div>
+        <div class="contact-info">
+            <a href="tel:0801798718" class="contact-item phone">
+                <i class="fas fa-phone"></i> 080-179-8718
+            </a>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <section class="service-description">
+            <h2 class="section-title">✨ รายละเอียดการติดตั้งเครื่องทำน้ำอุ่น</h2>
+            <p>
+                ติดตั้งเครื่องทำน้ำอุ่นอย่างถูกต้องตามหลักวิศวกรรมและความปลอดภัย โดยคำนึงถึงการต่อสายดิน (Grounding)
+                และการติดตั้งเบรกเกอร์ (Circuit Breaker) เฉพาะสำหรับเครื่องทำน้ำอุ่นโดยเฉพาะ เพื่อป้องกันไฟฟ้าลัดวงจร
+            </p>
+            <p>
+                เราให้บริการติดตั้งได้ทั้งในห้องน้ำที่มีการเตรียมจุดไว้แล้ว และการติดตั้งใหม่พร้อมเดินระบบน้ำและไฟ 
+                เพื่อให้คุณใช้งานน้ำอุ่นได้อย่างสบายใจและปลอดภัยสูงสุด
+            </p>
+        </section>
+
+        <section class="project-gallery">
+            <h2 class="section-title">🖼️ แกลเลอรีผลงานเครื่องทำน้ำอุ่น</h2>
+            <div class="gallery">
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/4b5563/e5e7eb?text=Water+Heater+Install+1" alt="ติดตั้งเครื่องทำน้ำอุ่น 1"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/4b5563/e5e7eb?text=Safety+Breaker" alt="ติดตั้งเบรกเกอร์นิรภัย"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/4b5563/e5e7eb?text=Wiring+Detail" alt="รายละเอียดการเดินสาย"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/4b5563/e5e7eb?text=Finished+Look" alt="ผลงานเสร็จสมบูรณ์"></div>
+            </div>
+        </section>
+
+        <a href="https://line.me/ti/p/[ใส่ Line ID หรือเบอร์โทร]" target="_blank" class="cta-button">
+            <i class="fab fa-line"></i> สนใจนัดหมายติดตั้งเครื่องทำน้ำอุ่น (คลิกเพื่อไลน์)
+        </a>
+        <a href="tel:0801798718" class="cta-button" style="background-color: #333; color: var(--text-light); margin-top: 15px;">
+            <i class="fas fa-phone"></i> โทรสอบถามรายละเอียดเพิ่มเติม
+        </a>
+        
+    </main>
+
+    <footer class="app-footer">
+        <p>J.P.S - ศูนย์รวมลิงก์สำหรับลูกค้า</p>
+    </footer>
+
+</body>
+</html>

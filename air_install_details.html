@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P.S - งานติดตั้งแอร์</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* สไตล์เฉพาะสำหรับหน้ารายละเอียดนี้ */
+        .content-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+
+        .service-description p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* สไตล์สำหรับแกลเลอรีภาพ (ใช้ Flexbox เพื่อการจัดเรียง) */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            flex: 1 1 calc(33.33% - 15px); /* 3 รูปต่อแถวบนจอใหญ่ */
+            background-color: var(--button-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.7; /* เพื่อให้ดูเหมือนเป็น Dark Mode มากขึ้น */
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item img:hover {
+            opacity: 1;
+        }
+
+        /* ปุ่มหลักสำหรับ Call to Action (CTA) */
+        .cta-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            border-radius: 8px;
+            margin-top: 30px;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #ffd700; /* สีทองที่สว่างขึ้น */
+        }
+        
+        /* ปรับสำหรับจอเล็ก */
+        @media (max-width: 600px) {
+            .gallery-item {
+                flex: 1 1 100%; /* 1 รูปต่อแถวบนจอเล็ก */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo-name">
+            <a href="index.html" class="contact-item" style="font-size: 1.5em; margin-right: 15px;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>งานติดตั้งแอร์</h1>
+        </div>
+        <div class="contact-info">
+            <a href="tel:0801798718" class="contact-item phone">
+                <i class="fas fa-phone"></i> 080-179-8718
+            </a>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <section class="service-description">
+            <h2 class="section-title">✨ รายละเอียดบริการ</h2>
+            <p>
+                ร้านซ่อมเจมส์โปรเซอร์วิส ให้บริการติดตั้งเครื่องปรับอากาศทุกชนิด ทุกยี่ห้อ ด้วยมาตรฐานการติดตั้งที่มั่นคงและปลอดภัย 
+                เราเน้นการวัดขนาดพื้นที่และการออกแบบระบบท่อที่เหมาะสม เพื่อประสิทธิภาพสูงสุดในการทำความเย็นและอายุการใช้งานที่ยาวนาน
+            </p>
+            <p>
+                บริการของเราครอบคลุมตั้งแต่การให้คำปรึกษา การประเมินหน้างานฟรี ไปจนถึงการติดตั้งที่รวดเร็วและสะอาด 
+                พร้อมรับประกันงานติดตั้ง 6 เดือนเต็ม
+            </p>
+        </section>
+
+        <section class="project-gallery">
+            <h2 class="section-title">🖼️ แกลเลอรีผลงานติดตั้งล่าสุด</h2>
+            <div class="gallery">
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e293b/94a3b8?text=Project+1" alt="ติดตั้งแอร์โครงการ 1"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e293b/94a3b8?text=Project+2" alt="ติดตั้งแอร์โครงการ 2"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e293b/94a3b8?text=Project+3" alt="ติดตั้งแอร์โครงการ 3"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e293b/94a3b8?text=Project+4" alt="ติดตั้งแอร์โครงการ 4"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e293b/94a3b8?text=Project+5" alt="ติดตั้งแอร์โครงการ 5"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/400x300/1e293b/94a3b8?text=Project+6" alt="ติดตั้งแอร์โครงการ 6"></div>
+            </div>
+        </section>
+
+        <a href="https://line.me/ti/p/[ใส่ Line ID หรือเบอร์โทร]" target="_blank" class="cta-button">
+            <i class="fab fa-line"></i> สนใจนัดหมายติดตั้งแอร์ (คลิกเพื่อไลน์)
+        </a>
+        <a href="tel:0801798718" class="cta-button" style="background-color: #333; color: var(--text-light); margin-top: 15px;">
+            <i class="fas fa-phone"></i> โทรสอบถามรายละเอียดเพิ่มเติม
+        </a>
+        
+    </main>
+
+    <footer class="app-footer">
+        <p>J.P.S - ศูนย์รวมลิงก์สำหรับลูกค้า</p>
+    </footer>
+
+</body>
+</html>

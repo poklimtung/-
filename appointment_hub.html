@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P.S - เวลาในการนัดหมาย</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* สไตล์รวมจากหน้ารายละเอียดบริการก่อนหน้า */
+        .content-container {
+            max-width: 650px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        .info-box {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #ccc;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .info-box strong {
+            color: var(--accent-color);
+        }
+        .cta-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .cta-button-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            font-size: 1.4em;
+            font-weight: 700;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .cta-button-main:hover {
+            transform: translateY(-3px);
+        }
+        .cta-button-main i {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+        
+        /* สไตล์เฉพาะสำหรับปุ่ม */
+        .cta-call {
+            background-color: #4CAF50; /* สีเขียวสำหรับโทรศัพท์ */
+            color: white;
+        }
+        .cta-line {
+            background-color: #00B900; /* สีเขียว Line */
+            color: white;
+        }
+        .cta-calendar {
+            background-color: #2196F3; /* สีฟ้าสำหรับปฏิทิน */
+            color: white;
+        }
+        /* ปุ่มใหม่สำหรับ Location */
+        .cta-location {
+            background-color: var(--accent-color); /* สีเน้นเหลืองทอง */
+            color: #1a1a1a;
+        }
+        
+        @media (max-width: 600px) {
+            .cta-button-main {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo-name">
+            <a href="index.html" class="contact-item" style="font-size: 1.5em; margin-right: 15px;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>นัดหมายบริการ</h1>
+        </div>
+        <div class="contact-info">
+            <a href="tel:0801798718" class="contact-item phone">
+                <i class="fas fa-phone"></i> 080-179-8718
+            </a>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <h2 class="section-title">🕒 ช่องทางการตรวจสอบเวลาและการนัดหมาย</h2>
+        
+        <div class="info-box">
+            <p>
+                กรุณาเลือกช่องทางที่คุณสะดวกที่สุดเพื่อทำการนัดหมายหรือสอบถามเวลาว่างของช่าง
+                **เราจะติดต่อกลับไปยืนยันเวลานัดหมายอย่างเป็นทางการอีกครั้ง**
+            </p>
+        </div>
+
+        <div class="cta-list">
+            
+            <a href="https://line.me/ti/p/[ใส่ Line ID หรือเบอร์โทร]" target="_blank" class="cta-button-main cta-location">
+                <i class="fas fa-map-marker-alt"></i> **ส่งโลเคชันหน้างาน (สำคัญมาก)**
+            </a>
+            
+            <a href="tel:0801798718" class="cta-button-main cta-call">
+                <i class="fas fa-phone-alt"></i> โทรด่วน! นัดหมายทันที (080-179-8718)
+            </a>
+
+            <a href="https://line.me/ti/p/[ใส่ Line ID หรือเบอร์โทร]" target="_blank" class="cta-button-main cta-line">
+                <i class="fab fa-line"></i> ติดต่อทาง LINE (สำหรับสอบถาม/ส่งรูป)
+            </a>
+
+            <a href="[ใส่ลิงก์ Google Forms/Calendar/ตารางเวลาที่นี่]" target="_blank" class="cta-button-main cta-calendar">
+                <i class="fas fa-calendar-alt"></i> ตรวจสอบ/จองคิวออนไลน์
+            </a>
+            
+        </div>
+        
+    </main>
+
+    <footer class="app-footer">
+        <p>J.P.S - ศูนย์รวมลิงก์สำหรับลูกค้า</p>
+    </footer>
+
+</body>
+</html>

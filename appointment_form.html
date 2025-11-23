@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P.S - ฟอร์มนัดหมายบริการ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        /* สไตล์ฟอร์ม */
+        .appointment-form {
+            background-color: var(--button-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 6px;
+            background-color: #444;
+            color: var(--text-light);
+            box-sizing: border-box;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #aaa;
+        }
+        /* ปุ่มรับพิกัด GPS */
+        #get-location-btn {
+            background-color: #f44336; /* สีแดงสำหรับ Location */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 5px;
+            transition: background-color 0.2s;
+        }
+        #get-location-btn:hover {
+            background-color: #d32f2f;
+        }
+        #location-status {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #90ee90; /* สีเขียวอ่อนเมื่อสำเร็จ */
+        }
+        #location-status.error {
+             color: #ffcccb; /* สีแดงอ่อนเมื่อเกิดข้อผิดพลาด */
+        }
+        /* ปุ่มส่งฟอร์ม */
+        .submit-button {
+            background-color: var(--accent-color);
+            color: #1a1a1a;
+            border: none;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.2s;
+        }
+        .submit-button:hover {
+            background-color: #ffd700;
+        }
+        /* ข้อความแจ้งเตือนเมื่อฟอร์มสำเร็จ */
+        #submission-message {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            display: none; /* ซ่อนไว้ก่อน */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo-name">
+            <a href="index.html" class="contact-item" style="font-size: 1.5em; margin-right: 15px;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>ฟอร์มนัดหมาย</h1>
+        </div>
+        <div class="contact-info">
+            <a href="tel:0801798718" class="contact-item phone">
+                <i class="fas fa-phone"></i> 080-179-8718
+            </a>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <h2 class="section-title">✍️ กรอกรายละเอียดและพิกัดหน้างาน</h2>
+        
+        <form class="appointment-form" id="appointment-form">
+            
+            <div class="form-group">
+                <label for="name">ชื่อ-นามสกุล:</label>
+                <input type="text" id="name" name="name" required placeholder="นาย/นางสาว...">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">เบอร์โทรศัพท์:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="08x-xxx-xxxx">
+            </div>
+
+            <div class="form-group">
+                <label for="service">บริการที่ต้องการนัดหมาย:</label>
+                <select id="service" name="service" required>
+                    <option value="">-- เลือกบริการ --</option>
+                    <option value="air_install">งานติดตั้งแอร์</option>
+                    <option value="electric_wiring">งานเดินระบบไฟ</option>
+                    <option value="water_heater">งานติดตั้งเครื่องทำน้ำอุ่น</option>
+                    <option value="repair_other">งานซ่อม/บริการอื่นๆ</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>พิกัดหน้างาน (GPS):</label>
+                
+                <input type="text" id="latitude" name="latitude" placeholder="ละติจูด" readonly required>
+                <input type="text" id="longitude" name="longitude" placeholder="ลองจิจูด" readonly required style="margin-top: 5px;">
+                
+                <button type="button" id="get-location-btn">
+                    <i class="fas fa-location-arrow"></i> คลิกเพื่อแชร์พิกัดปัจจุบัน
+                </button>
+                <p id="location-status">กรุณาคลิกปุ่มด้านบนเพื่อแชร์ตำแหน่ง</p>
+            </div>
+
+            <div class="form-group">
+                <label for="address">รายละเอียดที่อยู่เพิ่มเติม:</label>
+                <textarea id="address" name="address" rows="3" placeholder="บ้านเลขที่, ถนน, ซอย, รายละเอียดสำคัญ"></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <i class="fas fa-paper-plane"></i> ส่งฟอร์มนัดหมาย
+            </button>
+            
+        </form>
+
+        <div id="submission-message">
+            <p>✅ **ส่งคำขอนัดหมายเรียบร้อยแล้ว!**</p>
+            <p>ทีมงานจะติดต่อกลับไปยืนยันรายละเอียดในภายหลัง</p>
+        </div>
+        
+    </main>
+
+    <footer class="app-footer">
+        <p>J.P.S - ศูนย์รวมลิงก์สำหรับลูกค้า</p>
+    </footer>
+    
+    <script>
+        // **********************************
+        // 1. ฟังก์ชันดึงพิกัด (Geolocation)
+        // **********************************
+        document.getElementById('get-location-btn').addEventListener('click', function() {
+            const status = document.getElementById('location-status');
+            const latInput = document.getElementById('latitude');
+            const lonInput = document.getElementById('longitude');
+
+            status.textContent = 'กำลังค้นหาตำแหน่ง...';
+            status.classList.remove('error');
+            latInput.value = '';
+            lonInput.value = '';
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+
+                        latInput.value = latitude.toFixed(6);
+                        lonInput.value = longitude.toFixed(6);
+                        
+                        status.textContent = `✅ ได้รับพิกัดแล้ว: Lat ${latitude.toFixed(4)}, Lon ${longitude.toFixed(4)}`;
+                    },
+                    function(error) {
+                        status.classList.add('error');
+                        let errorMessage = "❌ เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
+                        if (error.code === error.PERMISSION_DENIED) {
+                            errorMessage = "❌ ผู้ใช้ไม่อนุญาตให้เข้าถึงตำแหน่งที่ตั้ง กรุณาใส่ที่อยู่ด้วยตนเอง";
+                        } else if (error.code === error.POSITION_UNAVAILABLE) {
+                            errorMessage = "❌ ตำแหน่งที่ตั้งไม่พร้อมใช้งาน";
+                        } else if (error.code === error.TIMEOUT) {
+                            errorMessage = "❌ หมดเวลารอการระบุตำแหน่ง";
+                        }
+                        status.textContent = errorMessage;
+                        latInput.removeAttribute('readonly'); 
+                        lonInput.removeAttribute('readonly');
+                    },
+                    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+                );
+            } else {
+                status.classList.add('error');
+                status.textContent = "❌ เบราว์เซอร์ของคุณไม่รองรับ Geolocation API";
+            }
+        });
+        
+        // **********************************
+        // 2. ฟังก์ชันจัดการการส่งฟอร์ม (Form Submission Handler)
+        // **********************************
+        document.getElementById('appointment-form').addEventListener('submit', function(event) {
+            // ป้องกันไม่ให้ฟอร์มส่งข้อมูลตามปกติ (เพราะเราไม่มี action URL)
+            event.preventDefault(); 
+            
+            const form = event.target;
+            const data = {
+                name: form.name.value,
+                phone: form.phone.value,
+                service: form.service.value,
+                latitude: form.latitude.value,
+                longitude: form.longitude.value,
+                address: form.address.value,
+                timestamp: new Date().toLocaleString('th-TH')
+            };
+
+            // แสดงข้อมูลใน Console (สำหรับคุณตรวจสอบ)
+            console.log("--- ข้อมูลการนัดหมายที่ได้รับ ---");
+            console.log(JSON.stringify(data, null, 2));
+            console.log("--------------------------------");
+
+            // *** ขั้นตอนนี้คือสิ่งที่คุณต้องนำไปใช้ต่อ ***
+            // 
+            // 1. วิธีที่ง่ายที่สุด: สร้างข้อความ LINE/Email แล้วให้ผู้ใช้คัดลอก/ส่งเอง (ไม่แนะนำ)
+            // 2. วิธีที่แนะนำ: ใช้บริการเช่น Google Forms/Sheet หรือ Zapier เพื่อรับข้อมูลนี้
+            //
+            // หากคุณต้องการให้ผมสร้างฟังก์ชันสำหรับคัดลอกข้อความ
+            // ที่รวมข้อมูลเหล่านี้ทั้งหมด (รวมพิกัด) เพื่อให้คุณส่งให้ตัวเองทาง LINE/Email ได้
+            // สามารถแจ้งมาได้เลยครับ
+
+            // ซ่อนฟอร์มและแสดงข้อความสำเร็จ
+            form.style.display = 'none';
+            document.getElementById('submission-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

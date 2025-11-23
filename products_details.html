@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.P.S - สินค้าในร้าน</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* สไตล์รวมจากหน้ารายละเอียดบริการก่อนหน้า */
+        .content-container {
+            max-width: 1000px; /* เพิ่มความกว้างเพื่อรองรับ Product Card */
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .section-title {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+        /* Grid สำหรับแสดง Product Card */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ปรับให้แสดง 3-4 คอลัมน์บนจอใหญ่ */
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .product-card {
+            background-color: var(--button-bg); /* ใช้สีเดียวกับปุ่มเมนู */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+            text-align: center;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #333;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h3 {
+            color: var(--text-light);
+            font-size: 1.2em;
+            margin: 5px 0 10px;
+        }
+        .product-info p.price {
+            color: var(--accent-color);
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 5px 0 15px;
+        }
+        .cta-buy {
+            display: block;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .cta-buy:hover {
+            background-color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="logo-name">
+            <a href="index.html" class="contact-item" style="font-size: 1.5em; margin-right: 15px;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>สินค้าในร้าน</h1>
+        </div>
+        <div class="contact-info">
+            <a href="tel:0801798718" class="contact-item phone">
+                <i class="fas fa-phone"></i> 080-179-8718
+            </a>
+        </div>
+    </header>
+
+    <main class="content-container">
+
+        <section class="products-list">
+            <h2 class="section-title">🛒 เครื่องปรับอากาศและอุปกรณ์คุณภาพ</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/1e293b/94a3b8?text=AIR+MODEL+A" alt="เครื่องปรับอากาศรุ่น A">
+                    <div class="product-info">
+                        <h3>เครื่องปรับอากาศ 9,000 BTU</h3>
+                        <p class="price">฿ 9,500</p>
+                        <a href="[ลิงก์ซื้อ/สอบถามสินค้า 1]" class="cta-buy">สอบถาม/สั่งซื้อ</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/1e293b/94a3b8?text=WATER+HEATER+5000W" alt="เครื่องทำน้ำอุ่น 5000W">
+                    <div class="product-info">
+                        <h3>เครื่องทำน้ำอุ่น 5,000W</h3>
+                        <p class="price">฿ 3,200</p>
+                        <a href="[ลิงก์ซื้อ/สอบถามสินค้า 2]" class="cta-buy">สอบถาม/สั่งซื้อ</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200/1e293b/94a3b8?text=AC+Remote" alt="อะไหล่รีโมทแอร์">
+                    <div class="product-info">
+                        <h3>รีโมทแอร์ (ทุกยี่ห้อ)</h3>
+                        <p class="price">฿ 450</p>
+                        <a href="[ลิงก์ซื้อ/สอบถามสินค้า 3]" class="cta-buy">สอบถาม/สั่งซื้อ</a>
+                    </div>
+                </div>
+                
+                </div>
+        </section>
+
+        <a href="https://line.me/ti/p/[ใส่ Line ID หรือเบอร์โทร]" target="_blank" class="cta-button" style="margin-top: 10px;">
+            <i class="fas fa-cart-plus"></i> สอบถามสินค้าเพิ่มเติมทั้งหมด
+        </a>
+        
+    </main>
+
+    <footer class="app-footer">
+        <p>J.P.S - ศูนย์รวมลิงก์สำหรับลูกค้า</p>
+    </footer>
+
+</body>
+</html>
